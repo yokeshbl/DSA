@@ -40,7 +40,8 @@ public class Main {
         Main list = new Main();
         list.add(10);
         list.add(20);
-        list.add(30);
+        list.add(35);
+        list.add(55);
         System.out.print("Linked List: ");
         list.display();
     }
