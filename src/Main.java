@@ -10,59 +10,27 @@ public class Main {
         }
     }
 
-    Node head = null; // head of the list
-
-    // Method to add element to linked list
-    public void add(int data) {
-        Node newNode = new Node(data);
-        if (head == null) {
-            head = newNode;
-            return;
-        }
-        Node current = head;
-        while (current.next != null) {
-            current = current.next;
-        }
-        current.next = newNode;
-    }
-
-    // Method to display linked list elements
-    public void display() {
-        Node current = head;
-        while (current != null) {
-            System.out.print(current.data + " ");
-            current = current.next;
-        }
-        System.out.println();
-    }
-
-    // Method to reverse linked list
-    public void reverse() {
-        Node prev = null;
-        Node current = head;
-        Node next = null;
-        while (current != null) {
-            next = current.next;       // Save next node
-            current.next = prev;       // Reverse current node's pointer
-            prev = current;            // Move prev ahead
-            current = next;            // Move current ahead
-        }
-        head = prev;                   // Update head to new front
+    // Method to detect cycle in linked list
+    public boolean hasCycle(Node head) {
+        // write your code here
+        return false;
     }
 
     public static void main(String[] args) {
         Main list = new Main();
-        list.add(10);
-        list.add(20);
-        list.add(35);
-        list.add(55);
 
-        System.out.print("Linked List: ");
-        list.display();
+        // Creating a linked list: 3 -> 2 -> 0 -> -4
+        Node head = list.new Node(3);
+        Node second = list.new Node(2);
+        Node third = list.new Node(0);
+        Node fourth = list.new Node(-4);
 
-        list.reverse();
+        head.next = second;
+        second.next = third;
+        third.next = fourth;
+        // creating a cycle (tail connects to second node)
+        fourth.next = second;
 
-        System.out.print("Reversed List: ");
-        list.display();
+        System.out.println("Cycle detected? " + list.hasCycle(head));
     }
 }
