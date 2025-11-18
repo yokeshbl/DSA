@@ -10,36 +10,35 @@ public class Main {
         }
     }
 
-    // Method to detect cycle in linked list
-    public boolean hasCycle(Node head) {
-        if(head == null) return false;
-        Node slow=head;
-        Node fast=head;
-        while(fast!=null && fast.next!=null){
-            slow=slow.next;
-            fast=fast.next.next;
-            if(slow==fast){
-                return true;
-            }
+    // Method to remove Nth node from end
+    public Node removeNthFromEnd(Node head, int n) {
+        // write your code here
+        return null;
+    }
+
+    // Method to display the list
+    public void display(Node head) {
+        while (head != null) {
+            System.out.print(head.data + " ");
+            head = head.next;
         }
-        return false;
+        System.out.println();
     }
 
     public static void main(String[] args) {
-        Main list = new Main();
+        Main obj = new Main();
 
-        // Creating a linked list: 3 -> 2 -> 0 -> -4
-        Node head = list.new Node(3);
-        Node second = list.new Node(2);
-        Node third = list.new Node(0);
-        Node fourth = list.new Node(-4);
+        // Create linked list: 1 -> 2 -> 3 -> 4 -> 5
+        Node head = obj.new Node(1);
+        head.next = obj.new Node(2);
+        head.next.next = obj.new Node(3);
+        head.next.next.next = obj.new Node(4);
+        head.next.next.next.next = obj.new Node(5);
 
-        head.next = second;
-        second.next = third;
-        third.next = fourth;
-        // creating a cycle (tail connects to second node)
-        fourth.next = second;
+        int n = 2; // remove 2nd node from end
+        head = obj.removeNthFromEnd(head, n);
 
-        System.out.println("Cycle detected? " + list.hasCycle(head));
+        System.out.print("Updated Linked List: ");
+        obj.display(head);
     }
 }
